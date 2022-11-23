@@ -1,0 +1,59 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin cover-background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin breakpoint-up($name) {
+  @each $k, $v in $breakpoints {
+    @if $name == $k {
+      @media screen and (min-width: $v) {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin when-inside-direct($context) {
+  #{$context} > & {
+    @content;
+  }
+}
+
+@mixin escape-pad() {
+  margin-left: -$container-padding;
+  margin-right: -$container-padding;
+}
+
+@mixin full-screen($pos: 'absolute') {
+  position: $pos;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+@mixin fill {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+@mixin ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
