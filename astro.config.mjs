@@ -1,10 +1,14 @@
+/* eslint-disable import/no-unresolved */
 import { defineConfig } from "astro/config";
-
-// https://astro.build/config
-// eslint-disable-next-line import/no-unresolved
-import svelte from "@astrojs/svelte";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte()],
+  integrations: [
+    tailwind({
+      config: {
+        applyBaseStyles: false,
+      },
+    }),
+  ],
 });

@@ -10,7 +10,7 @@
   background-position: center;
 }
 
-@mixin breakpoint-up($name) {
+@mixin breakpoint-up($name, $breakpoints: $grid-breakpoints) {
   @each $k, $v in $breakpoints {
     @if $name == $k {
       @media screen and (min-width: $v) {
